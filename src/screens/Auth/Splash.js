@@ -6,6 +6,7 @@ import {
   Dimensions,
   ActivityIndicator,
   AsyncStorage,
+  Image,
 } from "react-native";
 import { useFonts } from "expo-font";
 import { Container } from "../../components/common";
@@ -26,7 +27,7 @@ const splash = ({ navigation }) => {
     getAllTeacher();
     getAllUser();
     setTimeout(() => {
-      navigation.navigate("IntroVideo");
+      navigation.navigate("SignIn");
     }, 3000);
   }, []);
 
@@ -39,17 +40,21 @@ const splash = ({ navigation }) => {
   }
   return (
     <Container justify={"center"} alignItems={"center"}>
+      <Image
+        source={require("../../assets/images/Untitled-copy.png")}
+        style={{ height: width / 2.5, width: width / 2, resizeMode: "stretch" }}
+      />
       <Text
         style={[
           STYLES.h3,
-          STYLES.text_BLUE_LEVEL1,
+          STYLES.text_BLACK_LEVEL1,
           STYLES.mt4,
           STYLES.textAlignCenter,
           STYLES.textBold,
           STYLES.ml2,
         ]}
       >
-        Document Submission System Using QR Code
+        Document Submission System Using QR Code {"\n"}(C-MAIL)
       </Text>
     </Container>
   );

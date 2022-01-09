@@ -69,7 +69,7 @@ const SignUp = ({ navigation }) => {
           <View style={[STYLES.mt5]}>
             <InputBox
               value={data.name}
-              placeholder={"Name"}
+              placeholder={"Name Testing"}
               autoCapitalize={false}
               onChangeText={(e) => setData({ ...data, name: e.trim() })}
             />

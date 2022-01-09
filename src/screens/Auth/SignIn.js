@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   ScrollView,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from "react-redux";
@@ -15,6 +16,7 @@ import { readData, getAllUser } from "./firebase";
 import { Container, InputBox, ButtonFull } from "../../components/common";
 import { updateRecord } from "../../Reducer/action";
 import { STYLES } from "../../styles/styleSheet";
+import { AntDesign } from "@expo/vector-icons";
 
 const { height, width } = Dimensions.get("screen");
 
@@ -54,6 +56,16 @@ const SignIn = ({ navigation }) => {
   };
   return (
     <Container alignItems={"center"} isLoading={isLoading}>
+      <TouchableOpacity
+        style={{ position: "absolute", right: 32, bottom: 50, zIndex: 1 }}
+        onPress={() => navigation.navigate("IntroVideo")}
+      >
+        <AntDesign name="questioncircle" size={34} color="black" />
+      </TouchableOpacity>
+      <Image
+        source={require("../../assets/images/Untitled-copy.png")}
+        style={{ height: width / 2.5, width: width / 2, resizeMode: "stretch" }}
+      />
       <Text
         style={[
           STYLES.h3,
@@ -64,7 +76,7 @@ const SignIn = ({ navigation }) => {
           STYLES.textBold,
         ]}
       >
-        Document Submission System Using QR Code
+        Document Submission System Using QR Code {"\n"}(C-MAIL)
       </Text>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : null}
